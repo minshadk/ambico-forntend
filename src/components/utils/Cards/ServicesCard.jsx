@@ -1,0 +1,62 @@
+import * as React from "react";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import { CardActionArea } from "@mui/material";
+import { Test } from "../../../Assets/Images/ImageSemiAutoImport";
+// import PublishIcon from "@mui/icons-material/Publish";
+
+// importing images
+
+// import HandsShakeImgae from "../../../Assets/Images/handsshake.jpg";
+import search from "../../../Assets/Images/search.png";
+
+
+// icons
+// import AccessibleIcon from '@mui/icons-material/Accessible';
+
+export default function ServicesCard() {
+  return (
+    <Card
+      sx={{
+        // maxWidth: 270,
+        // // padding: 1 ,
+        // paddingX:2,
+        // paddingY:4,
+        // borderRadius: "20px",
+        // backgroundColor: "#fff",
+        // display: "flex",
+        // justifyContent: "center",
+        // alignItems: "center"
+      }}
+    >
+      <CardActionArea>
+        {/* <CardMedia
+          // component="img"
+          // height="140"
+          // image="/static/images/cards/contemplative-reptile.jpg"
+          // alt="green iguana"
+        /> */}
+        <CardMedia
+          component="img"
+          // height=""
+          // image="https://media.istockphoto.com/photos/fried-pork-and-vegetables-on-white-background-picture-id1190330112?k=20&m=1190330112&s=612x612&w=0&h=_TrmthJupdqYmMU-NC-es85TEvaBJsynDS383hqiAvM="
+          image={search}
+          alt="green iguana"
+          sx={{ objectFit: "cover", maxHeight:100,maxWidth:100}}
+        />
+
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Search
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Lizards are a widespread group of squamate reptiles, with over 6,000
+            species, ranging across all continents except Antarctica
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+  );
+}

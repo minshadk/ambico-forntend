@@ -1,0 +1,1 @@
+const REACT_APP_MAPBOX = "pk.eyJ1IjoibWluc2hhZGsiLCJhIjoiY2t6OGxzeWNxMWx3aDJ2b2ZiZGNtZ2M1cSJ9.CPfPxCgQaVLHIPlyoBqLgg"
