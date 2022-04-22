@@ -8,9 +8,14 @@ const loginService = async (data) => {
   return BackendService.post("api/ambulance/login", data);
 };
 
+const getAmbulanceByRadius = async (id) => {
+  return BackendService.get(`api/ambulance/findAmbulance/${id}`);
+};
+
 const ambulanceServices = {
   loginService,
-  RegisterService
+  RegisterService,
+  getAmbulanceByRadius
 };
 
 export default ambulanceServices;

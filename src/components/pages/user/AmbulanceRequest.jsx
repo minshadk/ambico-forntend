@@ -45,13 +45,16 @@ export default function AmbulanceRequest() {
       phoneNumber,
       location: { type: "Point", coordinates },
     };
-    console.log(data);
 
     const response = await ambulanceRequestServices.findAmbulance(data);
-    setAmbulanceRequest(response.data.ambulanceRequest);
-    if(ambulanceRequest._id) {
-      navigate(`/findAbulance`);
-    };
+    await setAmbulanceRequest(response.data.ambulanceRequest);
+    console.log(ambulanceRequest);
+    // console.log(ambulanceRequest._id)
+    if (ambulanceRequest._id) {
+      console.log("id is sther");
+      console.log(ambulanceRequest._id);
+      navigate(`/ambulanceResult/${ambulanceRequest._id}`);
+    }
   };
 
   const handleCoordinates = coordinate => {
@@ -59,8 +62,6 @@ export default function AmbulanceRequest() {
     setCoordinates(coordinate);
     console.log(coordinates);
   };
-
-  console.log(coordinates);
 
   return (
     <FormWrapper>
