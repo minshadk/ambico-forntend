@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { Typography, Grid, Box, Button, Modal } from "@mui/material";
+
 
 // Importing Custom components
 import TextInput from "../../utils/Inputs/TextInput";
@@ -8,8 +10,11 @@ import FormWrapper from "../../utils/FormWrapper";
 import Maps from "../../map/Maps";
 
 // Importing backend services
+import ambulanceServices from "./../../../services/ambulance";
 
 export default function RegisterAmbulance() {
+  const navigate = useNavigate();
+
   const [name, setName] = useState();
   const [phoneNumber, setPhoneNumber] = useState();
   const [email, setEmail] = useState();
@@ -45,6 +50,11 @@ export default function RegisterAmbulance() {
       location: { type: "Point", coordinates },
     };
     console.log(data);
+
+    const response = await ambulanceServices.RegisterService(data);
+    if(response.status) {
+      navigate(`/home`)
+    }
   };
 
   const handleCoordinates = coordinate => {

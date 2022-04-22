@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { Typography, Grid, Box, Button, Modal } from "@mui/material";
 
@@ -8,11 +9,15 @@ import FormWrapper from "../../utils/FormWrapper";
 import Maps from "../../map/Maps";
 
 // Importing backend services
+import ambulanceRequestServices from "../../../services/ambulanceRequest";
 
-export default function FindAmbulance() {
+export default function AmbulanceRequest() {
+  const navigate = useNavigate();
+
   const [name, setName] = useState();
   const [phoneNumber, setPhoneNumber] = useState();
   const [coordinates, setCoordinates] = useState();
+  const [ambulanceRequest, setAmbulanceRequest] = useState();
 
   // Modal
   const style = {
@@ -41,6 +46,12 @@ export default function FindAmbulance() {
       location: { type: "Point", coordinates },
     };
     console.log(data);
+
+    const response = await ambulanceRequestServices.findAmbulance(data);
+    setAmbulanceRequest(response.data.ambulanceRequest);
+    if(ambulanceRequest._id) {
+      navigate(`/findAbulance`);
+    };
   };
 
   const handleCoordinates = coordinate => {

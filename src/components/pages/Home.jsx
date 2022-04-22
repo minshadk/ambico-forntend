@@ -1,7 +1,10 @@
 import { Typography, Grid, Box, Button } from "@mui/material";
-import { height } from "@mui/system";
+
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+  const navigate = useNavigate();
+
   return (
     <Box
       sx={{
@@ -53,13 +56,32 @@ export default function Home() {
             justifyContent: "space-evenly",
           }}
         >
-          <Button variant="contained" color="success">
+          <Button
+            variant="contained"
+            color="success"
+            onClick={() => {
+              navigate(`/ambulanceRequest`);
+            }}
+          >
             Find Ambulance
           </Button>
-          <Button variant="outlined" color="primary" sx={{margin:3 }}>
+          <Button
+            variant="outlined"
+            color="primary"
+            sx={{ margin: 3 }}
+            onClick={() => {
+              navigate(`/register`);
+            }}
+          >
             Register Ambulance
           </Button>
-          <Button variant="contained" color="success">
+          <Button
+            variant="contained"
+            color="success"
+            onClick={() => {
+              navigate(`/login`);
+            }}
+          >
             Login for Ambulance Drivers
           </Button>
         </Box>
