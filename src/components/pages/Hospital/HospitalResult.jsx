@@ -8,27 +8,24 @@ import {
   Grid,
   Typography,
   Stack,
-  Card,
+  Card
 } from "@mui/material";
 
 //  Importing Custom Components
 import { PageWrapper } from "../../utils/PageWrapper";
 
 // Importing backend services
-import hospitalServices from './../../../services/hospitalServices';
+import ambulanceServices from "./../../../services/hospital";
 
-
-
-export default function AmbulanceResult() {
+export default function HospitalResult() {
   let { requestId } = useParams();
   //   const requestId = "62630cbfe62670aa96d7aad2";
-  const [ambulances, setAmbulances] = useState();
+  const [hospitals, setHospitals] = useState();
 
   useEffect(() => {
     const callBackendServices = async () => {
-      const response = await hospitalServices.getHospitalByRadius(requestId);
-      console.log(response)
-      setAmbulances(response.data.hospital);
+      const response = await ambulanceServices.getAmbulanceByRadius(requestId);
+      setHospitals(response.data.hospitals);
     };
     callBackendServices();
   }, []);
@@ -42,7 +39,7 @@ export default function AmbulanceResult() {
         spacing={2}
       >
         <Typography variant="h4">
-          Hospital are listed in Accending Order of distance
+          Hospitals are listed in Accending Order of distance
         </Typography>
       </Stack>
 
@@ -52,11 +49,11 @@ export default function AmbulanceResult() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          marginTop: 8,
+          marginTop: 8
         }}
       >
-        {ambulances &&
-          ambulances.map((ambulance, index) =>
+        {hospitals &&
+          hospitals.map((hospital, index) =>
             <Card
               sx={{ minWidth: 600, maxWidth: 700, padding: 2, marginTop: 3 }}
             >
@@ -72,14 +69,14 @@ export default function AmbulanceResult() {
                     color="text.secondary"
                     gutterBottom
                   >
-                    Hospital Name
+                    Driver Name
                   </Typography>
                   <Typography
                     sx={{ fontSize: 14 }}
                     // color="text.secondary"
                     gutterBottom
                   >
-                    {ambulance && ambulance.name}
+                    {hospital && hospital.name}
                   </Typography>
                 </Box>
                 <Box>
@@ -88,14 +85,14 @@ export default function AmbulanceResult() {
                     color="text.secondary"
                     gutterBottom
                   >
-                    Hospital Phone Number
+                    Driver Phone Number
                   </Typography>
                   <Typography
                     sx={{ fontSize: 14 }}
                     // color="text.secondary"
                     gutterBottom
                   >
-                    {ambulance && ambulance.phoneNumber}
+                    {hospital && hospital.phoneNumber}
                   </Typography>
                 </Box>
               </Stack>
