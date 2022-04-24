@@ -79,7 +79,7 @@ export default function Home() {
             variant="contained"
             color="success"
             onClick={() => {
-              navigate(`/login`);
+              navigate(`/hospitalRequest`);
             }}
           >
             Find Hospital

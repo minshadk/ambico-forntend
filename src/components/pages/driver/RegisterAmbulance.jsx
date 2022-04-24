@@ -3,10 +3,11 @@ import { useNavigate } from "react-router-dom";
 
 import { Typography, Grid, Box, Button, Modal } from "@mui/material";
 
-
 // Importing Custom components
 import TextInput from "../../utils/Inputs/TextInput";
 import FormWrapper from "../../utils/FormWrapper";
+import SelectInput from "./../../utils/Inputs/SelectInput";
+
 import Maps from "../../map/Maps";
 
 // Importing backend services
@@ -20,7 +21,15 @@ export default function RegisterAmbulance() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [coordinates, setCoordinates] = useState();
+  const [type, setType] = useState();
 
+  const ambulanceType = [
+    "Basic Ambulance",
+    "Advance Ambulance",
+    "Mortuary Ambulance",
+    "Neonatal Ambulance",
+    "Patient Transport Vehicle"
+  ];
   // Modal
   const style = {
     position: "absolute",
@@ -31,7 +40,7 @@ export default function RegisterAmbulance() {
     bgcolor: "background.paper",
     border: "2px solid #000",
     boxShadow: 24,
-    p: 4,
+    p: 4
   };
 
   const [open, setOpen] = useState(false);
@@ -47,13 +56,14 @@ export default function RegisterAmbulance() {
       phoneNumber,
       email,
       password,
-      location: { type: "Point", coordinates },
+      type,
+      location: { type: "Point", coordinates }
     };
     console.log(data);
 
     const response = await ambulanceServices.RegisterService(data);
-    if(response.status) {
-      navigate(`/home`)
+    if (response.status) {
+      navigate(`/home`);
     }
   };
 
@@ -99,7 +109,15 @@ export default function RegisterAmbulance() {
               setTextValue={setName}
             />
           </Grid>
-
+          <Grid item xs={12} sm={12} md={12}>
+            <SelectInput
+              label="Ambulance Type"
+              name="Ambulance Type"
+              menuItems={ambulanceType}
+              dropdownValue={type}
+              setDropdownValue={setType}
+            />
+          </Grid>
           <Grid item xs={12} sm={12} md={12}>
             <TextInput
               name="phoneNumber"

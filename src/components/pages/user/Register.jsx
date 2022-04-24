@@ -35,7 +35,7 @@ export default function Register() {
               variant="contained"
               color="success"
               onClick={() => {
-                navigate("/register");
+                navigate("/registerAmbulance");
               }}
               sx={{ marginTop: 3 }}
             >

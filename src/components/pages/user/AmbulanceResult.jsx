@@ -8,16 +8,14 @@ import {
   Grid,
   Typography,
   Stack,
-  Card,
+  Card
 } from "@mui/material";
 
 //  Importing Custom Components
 import { PageWrapper } from "../../utils/PageWrapper";
 
 // Importing backend services
-import hospitalServices from './../../../services/hospitalServices';
-
-
+import hospitalServices from "./../../../services/hospitalServices";
 
 export default function AmbulanceResult() {
   let { requestId } = useParams();
@@ -27,7 +25,7 @@ export default function AmbulanceResult() {
   useEffect(() => {
     const callBackendServices = async () => {
       const response = await hospitalServices.getHospitalByRadius(requestId);
-      console.log(response)
+      console.log(response);
       setAmbulances(response.data.hospital);
     };
     callBackendServices();
@@ -52,7 +50,7 @@ export default function AmbulanceResult() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          marginTop: 8,
+          marginTop: 8
         }}
       >
         {ambulances &&
@@ -72,7 +70,7 @@ export default function AmbulanceResult() {
                     color="text.secondary"
                     gutterBottom
                   >
-                    Hospital Name
+                    Driver Name
                   </Typography>
                   <Typography
                     sx={{ fontSize: 14 }}
@@ -88,7 +86,7 @@ export default function AmbulanceResult() {
                     color="text.secondary"
                     gutterBottom
                   >
-                    Hospital Phone Number
+                    Driver Phone Number
                   </Typography>
                   <Typography
                     sx={{ fontSize: 14 }}
@@ -96,6 +94,22 @@ export default function AmbulanceResult() {
                     gutterBottom
                   >
                     {ambulance && ambulance.phoneNumber}
+                  </Typography>
+                </Box>
+                <Box>
+                  <Typography
+                    sx={{ fontSize: 16 }}
+                    color="text.secondary"
+                    gutterBottom
+                  >
+                    Type
+                  </Typography>
+                  <Typography
+                    sx={{ fontSize: 14 }}
+                    // color="text.secondary"
+                    gutterBottom
+                  >
+                    {ambulance && ambulance.type}
                   </Typography>
                 </Box>
               </Stack>
