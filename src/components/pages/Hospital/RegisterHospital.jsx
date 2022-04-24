@@ -9,15 +9,18 @@ import FormWrapper from "../../utils/FormWrapper";
 import Maps from "../../map/Maps";
 
 // Importing backend services
-import ambulanceRequestServices from "../../../services/ambulanceRequest";
+import hospitalServices from './../../../services/hospitalServices';
 
-export default function AmbulanceRequest() {
+
+export default function RegisterHospital() {
   const navigate = useNavigate();
 
   const [name, setName] = useState();
   const [phoneNumber, setPhoneNumber] = useState();
+  const [email, setEmail] = useState();
+  const [address, setAddress] = useState();
+  const [password, setPassword] = useState();
   const [coordinates, setCoordinates] = useState();
-  const [ambulanceRequest, setAmbulanceRequest] = useState();
 
   // Modal
   const style = {
@@ -29,7 +32,7 @@ export default function AmbulanceRequest() {
     bgcolor: "background.paper",
     border: "2px solid #000",
     boxShadow: 24,
-    p: 4,
+    p: 4
   };
 
   const [open, setOpen] = useState(false);
@@ -43,24 +46,24 @@ export default function AmbulanceRequest() {
     const data = {
       name,
       phoneNumber,
-      location: { type: "Point", coordinates },
+      email,
+      password,
+      location: { type: "Point", coordinates }
     };
+    console.log(data);
 
-    const response = await ambulanceRequestServices.findAmbulance(data);
-    await setAmbulanceRequest(response.data.ambulanceRequest);
-    // console.log(ambulanceRequest._id)
-    if (ambulanceRequest._id) {
-      console.log("id is sther");
-      console.log(ambulanceRequest._id);
-      navigate(`/ambulanceResult/${ambulanceRequest._id}`);
+    const response = await hospitalServices.createHospital(data);
+    if (response.status) {
+      navigate(`/home`);
     }
   };
 
   const handleCoordinates = coordinate => {
-    console.log("handle coordinates called");
     setCoordinates(coordinate);
     console.log(coordinates);
   };
+
+  console.log(coordinates);
 
   return (
     <FormWrapper>
@@ -76,18 +79,11 @@ export default function AmbulanceRequest() {
           gutterBottom
           sx={{ marginTop: 10 }}
         >
-          Find Ambulance
+          Register Hospital
         </Typography>
       </Grid>
       <Box>
-        <Grid
-          container
-          //   direction="column"
-          //   justifyContent="center"
-          //   alignItems="center"
-          spacing={2}
-          rowSpacing={2}
-        >
+        <Grid container spacing={2} rowSpacing={2}>
           <Grid item xs={12} sm={12} md={12}>
             <TextInput
               name="name"
@@ -96,6 +92,14 @@ export default function AmbulanceRequest() {
               setTextValue={setName}
             />
           </Grid>
+          <Grid item xs={12} sm={12} md={12}>
+            {/* <TextInput
+              name="address"
+              label="Address"
+              textValue={address}
+              setTextValue={setAddress}
+            /> */}
+          </Grid>
 
           <Grid item xs={12} sm={12} md={12}>
             <TextInput
@@ -103,6 +107,22 @@ export default function AmbulanceRequest() {
               label="Phone Number"
               textValue={phoneNumber}
               setTextValue={setPhoneNumber}
+            />
+          </Grid>
+          <Grid item xs={12} sm={12} md={12}>
+            <TextInput
+              name="email"
+              label="Email"
+              textValue={email}
+              setTextValue={setEmail}
+            />
+          </Grid>
+          <Grid item xs={12} sm={12} md={12}>
+            <TextInput
+              name="password"
+              label="Password"
+              textValue={password}
+              setTextValue={setPassword}
             />
           </Grid>
           <Grid item xs={12} sm={12} md={12}>

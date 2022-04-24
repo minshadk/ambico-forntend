@@ -73,7 +73,7 @@ export default function Home() {
               navigate(`/register`);
             }}
           >
-            Register Ambulance
+            Register 
           </Button>
           <Button
             variant="contained"
@@ -82,7 +82,7 @@ export default function Home() {
               navigate(`/login`);
             }}
           >
-            Login for Ambulance Drivers
+            Find Hospital
           </Button>
         </Box>
       </Box>

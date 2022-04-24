@@ -18,19 +18,14 @@ import { PageWrapper } from "../../utils/PageWrapper";
 import ambulanceServices from "./../../../services/ambulance";
 
 export default function AmbulanceResult() {
-    let { requestId } = useParams();
-//   const requestId = "62630cbfe62670aa96d7aad2";
-  const navigate = useNavigate();
-
+  let { requestId } = useParams();
+  //   const requestId = "62630cbfe62670aa96d7aad2";
   const [ambulances, setAmbulances] = useState();
 
   useEffect(() => {
     const callBackendServices = async () => {
-      console.log("call backedn serives");
       const response = await ambulanceServices.getAmbulanceByRadius(requestId);
       setAmbulances(response.data.ambulances);
-      // console.log(response.data.ambulance);
-      // setOrder(response.data.ambulance);
     };
     callBackendServices();
   }, []);
@@ -44,7 +39,7 @@ export default function AmbulanceResult() {
         spacing={2}
       >
         <Typography variant="h4">
-          Ambulance are listed in Accending  Order of distance
+          Ambulance are listed in Accending Order of distance
         </Typography>
       </Stack>
 

@@ -5,17 +5,19 @@ import RegisterAmbulance from "./components/pages/driver/RegisterAmbulance";
 import AmbulanceRequest from "./components/pages/user/AmbulanceRequest";
 import Home from "./components/pages/Home";
 import AmbulanceResult from "./components/pages/user/AmbulanceResult";
-
+import Register from "./components/pages/user/Register";
+import RegisterHospital from "./components/pages/Hospital/RegisterHospital";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/register" element={<RegisterAmbulance />} />
+        <Route path="/registerAmbulance" element={<RegisterAmbulance />} />
         <Route path="/ambulanceRequest" element={<AmbulanceRequest />} />
+        <Route path="/registerHospital" element={<RegisterHospital />} />
         <Route
-          // path="/ambulanceResult"
           path="/ambulanceResult/:requestId"
           element={<AmbulanceResult />}
         />
