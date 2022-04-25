@@ -8,6 +8,8 @@ import AmbulanceResult from "./components/pages/user/AmbulanceResult";
 import Register from "./components/pages/user/Register";
 import RegisterHospital from "./components/pages/Hospital/RegisterHospital";
 import HospitalRequest from "./components/pages/Hospital/HospitalRequest";
+import DiffrentTypesAmbulance from "./components/pages/DiffrentTypesAmbulance";
+
 function App() {
   return (
     <BrowserRouter>
@@ -19,6 +21,8 @@ function App() {
         <Route path="/ambulanceRequest" element={<AmbulanceRequest />} />
         <Route path="/registerHospital" element={<RegisterHospital />} />
         <Route path="/hospitalRequest" element={<HospitalRequest />} />
+        <Route path="/diffrentAmbulance" element={<DiffrentTypesAmbulance />} />
+
         <Route
           path="/ambulanceResult/:requestId"
           element={<AmbulanceResult />}

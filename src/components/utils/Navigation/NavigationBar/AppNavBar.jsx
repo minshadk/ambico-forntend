@@ -2,7 +2,7 @@ import * as React from "react";
 import { Outlet } from "react-router-dom";
 import {Link, useLocation, useNavigate} from "react-router-dom"
 import { ThemeProvider } from "@emotion/react";
-import theme from "../../../../Styles/ThemConfig";
+// import theme from "../../../../Styles/ThemConfig";
 
 
 import AppBar from "@mui/material/AppBar";
@@ -73,11 +73,11 @@ const AppNavBar = () => {
           alignItems="center"
           spacing={2}
         >
-        <NavLink to='/products' >
-        Products
+        <NavLink to='/diffrentAmbulance' >
+        Diffrent Types of Ambulane
           </NavLink>
-          <NavLink to='/donateBlood' >
-            Blood Donation
+          <NavLink to='/register' >
+            Register
           </NavLink>
         </Stack>
         {/* <NavBtn>
