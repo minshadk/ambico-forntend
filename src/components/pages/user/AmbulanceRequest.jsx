@@ -48,7 +48,6 @@ export default function AmbulanceRequest() {
 
     const response = await ambulanceRequestServices.findAmbulance(data);
     await setAmbulanceRequest(response.data.ambulanceRequest);
-    // console.log(ambulanceRequest._id)
     if (ambulanceRequest._id) {
       console.log("id is sther");
       console.log(ambulanceRequest._id);
@@ -82,9 +81,6 @@ export default function AmbulanceRequest() {
       <Box>
         <Grid
           container
-          //   direction="column"
-          //   justifyContent="center"
-          //   alignItems="center"
           spacing={2}
           rowSpacing={2}
         >

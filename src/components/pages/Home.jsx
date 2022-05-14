@@ -1,7 +1,6 @@
 import { Typography, Grid, Box, Button } from "@mui/material";
 
 import { useNavigate } from "react-router-dom";
-import { AppBar } from '@mui/material/AppBar';
 
 
 export default function Home() {
@@ -15,7 +14,6 @@ export default function Home() {
         alignItems: "center",
         justifyContent: "center",
         height: "100vh",
-        // background:"red"
       }}
     >
       <Box

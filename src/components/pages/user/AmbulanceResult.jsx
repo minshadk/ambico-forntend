@@ -19,7 +19,6 @@ import hospitalServices from "./../../../services/hospitalServices";
 
 export default function AmbulanceResult() {
   let { requestId } = useParams();
-  //   const requestId = "62630cbfe62670aa96d7aad2";
   const [ambulances, setAmbulances] = useState();
 
   useEffect(() => {
@@ -74,7 +73,6 @@ export default function AmbulanceResult() {
                   </Typography>
                   <Typography
                     sx={{ fontSize: 14 }}
-                    // color="text.secondary"
                     gutterBottom
                   >
                     {ambulance && ambulance.name}
@@ -106,7 +104,6 @@ export default function AmbulanceResult() {
                   </Typography>
                   <Typography
                     sx={{ fontSize: 14 }}
-                    // color="text.secondary"
                     gutterBottom
                   >
                     {ambulance && ambulance.type}

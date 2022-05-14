@@ -70,10 +70,8 @@ export default function RegisterAmbulance() {
   const handleCoordinates = coordinate => {
     console.log("handle coordinates called");
     setCoordinates(coordinate);
-    console.log(coordinates);
   };
 
-  console.log(coordinates);
 
   return (
     <FormWrapper>
@@ -95,9 +93,6 @@ export default function RegisterAmbulance() {
       <Box>
         <Grid
           container
-          //   direction="column"
-          //   justifyContent="center"
-          //   alignItems="center"
           spacing={2}
           rowSpacing={2}
         >

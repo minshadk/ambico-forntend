@@ -2,7 +2,7 @@
 import { MenuItem, TextField } from "@mui/material";
 
 export default function SelectInput(props) {
-  //props destructuring
+  
   const { label, name, dropdownValue, setDropdownValue, menuItems } = props;
 
   const handleTextInputChange = (e) => {
