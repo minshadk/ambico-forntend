@@ -31,28 +31,43 @@ export default function Register() {
       <Box>
         <Grid container spacing={2} rowSpacing={2}>
           <Grid item xs={12} sm={12} md={12}>
-            <Button
-              variant="contained"
-              color="success"
-              onClick={() => {
-                navigate("/registerAmbulance");
-              }}
-              sx={{ marginTop: 3 }}
+            <Grid
+              container
+              direction="row"
+              justifyContent="center"
+              alignItems="center"
             >
-              Register Ambulance
-            </Button>
+              {/* <Typography variant="h2">Type of Ambulance</Typography> */}
+              <Button
+                variant="contained"
+                color="success"
+                onClick={() => {
+                  navigate("/registerAmbulance");
+                }}
+                sx={{ marginTop: 3 }}
+              >
+                Register Ambulance
+              </Button>
+            </Grid>
           </Grid>
           <Grid item xs={12} sm={12} md={12}>
-            <Button
-              variant="contained"
-              color="success"
-              onClick={() => {
-                navigate("/registerHospital");
-              }}
-              sx={{ marginTop: 3 }}
+            <Grid
+              container
+              direction="row"
+              justifyContent="center"
+              alignItems="center"
             >
-              Register Hospital
-            </Button>
+              <Button
+                variant="contained"
+                color="success"
+                onClick={() => {
+                  navigate("/registerHospital");
+                }}
+                sx={{ marginTop: 3 }}
+              >
+                Register Hospital
+              </Button>
+            </Grid>
           </Grid>
         </Grid>
       </Box>

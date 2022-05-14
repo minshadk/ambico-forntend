@@ -2,7 +2,6 @@ import { Typography, Grid, Box, Button } from "@mui/material";
 
 import { useNavigate } from "react-router-dom";
 
-
 export default function Home() {
   const navigate = useNavigate();
 
@@ -13,14 +12,14 @@ export default function Home() {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        height: "100vh",
+        height: "100vh"
       }}
     >
       <Box
         sx={{
           display: "flex",
           alignItems: "center",
-          justifyContent: "center",
+          justifyContent: "center"
         }}
       >
         <Typography sx={{ fontSize: "4rem" }}>Ambico</Typography>
@@ -31,59 +30,70 @@ export default function Home() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
+          height: "100vh"
+          // background:"red"
         }}
       >
-        <Box>
-          <Typography sx={{ fontSize: "2rem" }}>
-            Amblulance emergencies !
-          </Typography>
-        </Box>
-        <Box>
-          <Typography sx={{ fontSize: "1rem" }}>
-            Ambico is right here at your fingertips
-          </Typography>
-        </Box>
-        <Box>
-          <Typography sx={{ fontSize: "1rem" }}>
-            Our goal is to save lives by providing ambulance in the shortest
-            posible time
-          </Typography>
-        </Box>
         <Box
           sx={{
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-evenly",
+            justifyContent: "center"
           }}
         >
-          <Button
-            variant="contained"
-            color="success"
-            onClick={() => {
-              navigate(`/ambulanceRequest`);
+          <Typography sx={{ fontSize: "4rem" }}>Ambico</Typography>
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center"
+          }}
+        >
+          <Box>
+            <Typography sx={{ fontSize: "2rem" }}>
+              Amblulance emergencies !
+            </Typography>
+          </Box>
+          <Box>
+            <Typography sx={{ fontSize: "1rem" }}>
+              Ambico is right here at your fingertips
+            </Typography>
+          </Box>
+          <Box>
+            <Typography sx={{ fontSize: "1rem" }}>
+              Our goal is to save lives by providing ambulance in the shortest
+              posible time
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-evenly"
             }}
           >
-            Find Ambulance
-          </Button>
-          <Button
-            variant="outlined"
-            color="primary"
-            sx={{ margin: 3 }}
-            onClick={() => {
-              navigate(`/register`);
-            }}
-          >
-            Register 
-          </Button>
-          <Button
-            variant="contained"
-            color="success"
-            onClick={() => {
-              navigate(`/hospitalRequest`);
-            }}
-          >
-            Find Hospital
-          </Button>
+            <Button
+              variant="contained"
+              color="success"
+              onClick={() => {
+                navigate(`/ambulanceRequest`);
+              }}
+            >
+              Find Ambulance
+            </Button>
+            <Button
+              variant="contained"
+              color="success"
+              onClick={() => {
+                navigate(`/hospitalRequest`);
+              }}
+              sx={{ margin: 5 }}
+            >
+              Find Hospital
+            </Button>
+          </Box>
         </Box>
       </Box>
     </Box>

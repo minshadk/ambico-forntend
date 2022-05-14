@@ -99,6 +99,7 @@ export default function AmbulanceRequest() {
               label="Phone Number"
               textValue={phoneNumber}
               setTextValue={setPhoneNumber}
+              type={"number"}
             />
           </Grid>
           <Grid item xs={12} sm={12} md={12}>

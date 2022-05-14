@@ -102,6 +102,7 @@ export default function HospitalRequest() {
               label="Phone Number"
               textValue={phoneNumber}
               setTextValue={setPhoneNumber}
+              type={"number"}
             />
           </Grid>
           <Grid item xs={12} sm={12} md={12}>
